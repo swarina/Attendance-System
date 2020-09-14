@@ -1,5 +1,3 @@
-# This script uses the generated dataset to train our model for face-recognition of participating users using LBPH Face Recognizer.
-
 import cv2
 import numpy as np
 from PIL import Image

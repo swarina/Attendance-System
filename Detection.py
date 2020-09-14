@@ -1,5 +1,3 @@
-# This script detect faces and captures sample pictures of user to generate a dataset. The pictures are saved in Dataset folder.
-
 import cv2
 
 # Start real-time video.

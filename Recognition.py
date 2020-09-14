@@ -1,5 +1,3 @@
-#This script does the face-recogniton in real-time videos for participating users and mark them Present in the Attendace database.
-
 import cv2
 import numpy as np
 import os 
