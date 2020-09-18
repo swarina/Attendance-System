@@ -6,7 +6,7 @@ An attendance system program which recognizes users' faces and automatically mar
 
 This system uses the **HaarCascade classifier** for face-detection and **LBPH face-recognition** algorithm for face-recognition.  
   
-Sample pictures are taken from real-time video and saved in the *Dataset* folder. Later a *trainer.yml* file is created in the *Trained* folder based on the existing dataset. The LBPH face-recognizer uses the same to detect and recognize faces from real-time video and accordingly marks them present in the Attendance database.
+A database is initialised in the beginning of the program as *database.db*. Students are added with their names,roll numbers and sample pictures are captured from real-time video which are saved in the *Dataset* folder. Later a *trainer.yml* file is created in the *Trained* folder based on the existing dataset. The LBPH face-recognizer uses the same to detect and recognize faces from real-time video and accordingly marks them present in the Attendance table.
 
 ### Libraries
 
@@ -14,7 +14,7 @@ Sample pictures are taken from real-time video and saved in the *Dataset* folder
  - OpenCV
  - Numpy
  - Pillow
- - Openpyxl
+ - Sqlite3
  
  
  
