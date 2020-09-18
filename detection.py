@@ -7,7 +7,7 @@ def detect():
 
     # Start real-time video.
     cam = cv2.VideoCapture(0)
-    # cv2.namedWindow("Window")
+    
     # Video width and Height.
     cam.set(3, 640)
     cam.set(4, 480)
@@ -15,13 +15,16 @@ def detect():
     # Haarcascade Classifier used for face detection.
     face_detector = cv2.CascadeClassifier('HaarCascades/haarcascade_frontalface_default.xml')
 
-    # Roll No. for each student.
+    # Roll No. and name for each student.
     face_id = input('\n Enter Roll No.: ')
     student_name = input('\n Enter Name: ')
 
-    cur.execute("ALTER TABLE attendance ADD COLUMN '{s_roll_no}' integer(0,0)".format(s_roll_no = face_id))
+    # Adding student to database.
+    cur.execute("ALTER TABLE attendance ADD COLUMN _{s_roll_no} integer".format(s_roll_no = face_id))
     conn.commit()
-    cur.execute("INSERT INTO students VALUES('{s_roll_no}', '{s_name}')".format(s_roll_no=face_id, s_name=student_name))
+    cur.execute("UPDATE attendance SET _{s_roll_no}=0 WHERE date='%'".format(s_roll_no = face_id))
+    conn.commit()
+    cur.execute("INSERT INTO students VALUES({s_roll_no}, '{s_name}')".format(s_roll_no=face_id, s_name=student_name))
     conn.commit()
     print("\n Initializing face capture. Look at the camera and wait ...")
 
