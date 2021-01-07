@@ -1,4 +1,4 @@
-import sqlite3
+import sqlite3, os
 
 def init_(): 
 	conn = sqlite3.connect('database.db')
@@ -18,5 +18,7 @@ def init_():
 	    )
 	    """)
 	conn.commit()
+	os.mkdir("Dataset")
+	os.mkdir("Trained")
 if __name__ == '__main__':
 	print("This module can't be run directly! :(\n")
